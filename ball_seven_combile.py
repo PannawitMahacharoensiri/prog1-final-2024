@@ -32,11 +32,9 @@ class Ball:
         self.y += self.vy * dt
 
     def update_ball_velocity(self):
-        # if the ball hits the side walls, reverse the vx velocity
         if abs(self.x) > (self.canvas_width - self.ball_radius):
             self.vx = -self.vx
 
-        # if the ball hits the ceiling or the floor, reverse the vy velocity
         if abs(self.y) > (self.canvas_height - self.ball_radius):
             self.vy = -self.vy
 
@@ -60,8 +58,6 @@ class Run_ball:
             ball_color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
             self.ball_lists.append(Ball(x, y, vx, vy, ball_color, i))
 
-
-
     def draw_border(self):
         turtle.penup()
         turtle.goto(-self.canvas_width, -self.canvas_height)
@@ -75,7 +71,10 @@ class Run_ball:
             turtle.left(90)
 
     def run(self):
-        dt = 0.2  # time step
+        dt = 1.2  # How far it go
+        num = 0
+        drawer = turtle.Turtle()
+        seven = Seven(drawer, "red")
         while (True):
             turtle.clear()
             self.draw_border()
@@ -84,15 +83,12 @@ class Run_ball:
                 i.move_ball(dt)
                 i.update_ball_velocity()
             turtle.update()
-
-"""
-            drawer = turtle.Turtle()
-            seven = Seven(drawer, "red")
-            seven.run()
-"""
+            if num == 8:
+                num = 0
+            seven.run(num)
+            num += 1
 
 
-    # turtle.done()
 class Seven:
     def __init__(self,my_turtle,color):
         self.my_turtle = my_turtle
@@ -236,14 +232,13 @@ class Seven:
         while time.time() - start < dt:
             pass
 
-    def run(self):
+    def run(self,num):
         delay_in_seconds = 0.2
-        while True:
-            for i in range(0, 10):
-                self.clear()
-                self.draw( i)
-                self.my_delay(delay_in_seconds)
-                turtle.update()
+        # for i in range(0, 10):
+        self.clear()
+        self.draw(num)
+        self.my_delay(delay_in_seconds)
+        turtle.update()
 
 Test = Run_ball(7)
 Test.run()
