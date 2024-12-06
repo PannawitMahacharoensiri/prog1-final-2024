@@ -138,7 +138,6 @@ def draw(my_turtle, digit):
 def clear(my_turtle):
     my_turtle.clear()
 
-#???
 def my_delay(dt):
     import time
     start =  time.time()
@@ -146,6 +145,7 @@ def my_delay(dt):
         pass
 
 #drawer / make line
+## TOM IS MY TURTLE
 Tom = turtle.Turtle()
 # choose color of line
 tom_color = (255, 0, 0)
