@@ -1,5 +1,8 @@
 import turtle
 
+
+# my_turtle .... may be it a screen
+
 def init(my_turtle, color):
     turtle.speed(0)
     turtle.tracer(0)
@@ -135,22 +138,30 @@ def draw(my_turtle, digit):
 def clear(my_turtle):
     my_turtle.clear()
 
+#???
 def my_delay(dt):
     import time
     start =  time.time()
     while time.time() - start < dt:
         pass
 
+#drawer / make line
 Tom = turtle.Turtle()
+# choose color of line
 tom_color = (255, 0, 0)
+# ?? line size and skip animation
 init(Tom, tom_color)
+
 delay_in_seconds = 0.2
+
+# print/draw loop
 while True:
     for i in range(0, 10):
         clear(Tom)
         draw(Tom, i)
         my_delay(delay_in_seconds)
         turtle.update()
+
 
 turtle.done()
 

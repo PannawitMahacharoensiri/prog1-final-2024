@@ -3,14 +3,22 @@ import ball
 import random
 
 num_balls = 5
+
+# drawing things
 turtle.speed(0)
 turtle.tracer(0)
 turtle.hideturtle()
+
+# canva things
 canvas_width = turtle.screensize()[0]
 canvas_height = turtle.screensize()[1]
 print(canvas_width, canvas_height)
+
+
 ball_radius = 0.05 * canvas_width
 turtle.colormode(255)
+
+# physic ball things
 xpos = []
 ypos = []
 vx = []
